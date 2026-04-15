@@ -3,19 +3,23 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;
 }
 
-const styles =
-    `bg-electric-indigo text-zinc-100 
-    text-2xl font-extrabold p-2 max-w-[50%]
-    rounded-md cursor-pointer`
+const baseStyles =
+    `bg-pumpkin-spice 
+    text-zinc-100 font-extrabold 
+    p-2 
+    rounded-md 
+    cursor-pointer`
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
     children,
     isLoading = false,
+    className,
     ...props
 }) => {
     return (
-        <button {...props} className={styles}>{isLoading ? "..." : children}</button>
+        <button
+            {...props}
+            className={`${baseStyles} ${className || ""}`}
+        >{isLoading ? "..." : children}</button>
     )
 }
-
-export default Button
