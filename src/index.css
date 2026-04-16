@@ -6,13 +6,23 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   /* Colours */
-
-  /* test group 1 */
   --color-saffron: #e6c229;
   --color-pumpkin-spice: #f17105;
   --color-intense-cherry: #d11149;
   --color-electric-indigo: #6610f2;
   --color-bright-ocean: #1a8fe3;
+
+  --color-mine-shaft-50: #fafafa;
+  --color-mine-shaft-100: #f5f5f5;
+  --color-mine-shaft-200: #e6e6e6;
+  --color-mine-shaft-300: #d6d6d6;
+  --color-mine-shaft-400: #a5a5a5;
+  --color-mine-shaft-500: #767676;
+  --color-mine-shaft-600: #575757;
+  --color-mine-shaft-700: #434343;
+  --color-mine-shaft-800: #333333;
+  --color-mine-shaft-900: #1a1a1a;
+  --color-mine-shaft-950: #0a0a0a;
 }
 
 @layer base {
@@ -20,6 +30,7 @@
     font-family: var(--font-family);
     font-size: 16px;
     line-height: 1.6;
+    background-color: var(--color-mine-shaft-100);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -34,6 +45,7 @@
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    color: var(--color-mine-shaft-800);
   }
 
   h1 {
@@ -50,6 +62,7 @@
   p {
     font-size: 1rem;
     max-width: 68ch;
+    color: var(--color-mine-shaft-800);
   }
 
   code,
@@ -62,4 +75,5 @@
 
 #root {
   box-sizing: border-box;
+  padding: 2rem;
 }
