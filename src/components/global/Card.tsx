@@ -3,7 +3,7 @@ import { Badge } from "./Badge";
 
 interface CardProps {
     id: string;
-    img?: HTMLImageElement;
+    imgSrc?: string;
     title: string;
     level?: string[];
     tags: string[];
@@ -28,9 +28,9 @@ const cardLevelStyles =
 
     `
 
-export const Card = ({ id, img, title, level, description, tags, onSelect }: CardProps) => {
+export const Card = ({ id, imgSrc, title, level, description, tags, onSelect }: CardProps) => {
     return <div className={`${cardBaseStyles}`} onClick={() => onSelect(id)}>
-        <img src={`${img}`} alt={`${title}`} className={cardImgStyles} />
+        <img src={imgSrc} alt={`${title}`} className={cardImgStyles} />
         <h3>{title}</h3>
         <p className={cardLevelStyles}>{level}</p>
         <div className="flex flex-wrap gap-2">
