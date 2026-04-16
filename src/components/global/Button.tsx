@@ -4,8 +4,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const baseStyles =
-    `bg-pumpkin-spice 
-    text-zinc-100 font-extrabold 
+    `text-mine-shaft-100 font-extrabold 
     p-2 
     rounded-md 
     cursor-pointer`
