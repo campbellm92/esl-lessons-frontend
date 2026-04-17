@@ -1,6 +1,7 @@
-import { Card } from "../../components/global/Card";
+import { LessonCard } from "../../components/global/LessonCard";
+import useFetchLessons from "../../hooks/useFetchLessons";
 // import lessonsSectionBackground from "../../assets/backgrounds/blob-scatter-haikei.svg"
-import testImage from "../../assets/images/esports.jpg"
+// import testImage from "../../assets/images/esports.jpg"
 
 interface LessonsProps {
     title: string;
@@ -26,13 +27,31 @@ const cardsWrapperStyles =
     `
 
 export const Lessons = ({ title }: LessonsProps) => {
+    const { data, error, loading } = useFetchLessons()
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
     return (
         <section className={sectionStyles}>
             <h2 className={titleStyles}>{title}</h2>
             <div className={cardsWrapperStyles}>
-                <Card imgSrc={testImage} title="Are esports sports?" level={["B2, C1"]} tags={["Vocabulary", "Speaking"]} description="Find out about the history of English and why we perceive words and phrases the way we do."></Card>
-                <Card imgSrc={testImage} title="Are esports sports?" level={["B2, C1"]} tags={["Vocabulary", "Speaking"]} description="Find out about the history of English and why we perceive words and phrases the way we do."></Card>
-                <Card imgSrc={testImage} title="Are esports sports?" level={["B2, C1"]} tags={["Vocabulary", "Speaking"]} description="Find out about the history of English and why we perceive words and phrases the way we do."></Card>
+                {data.map((lesson) => (
+                    <LessonCard
+                        key={lesson.id}
+                        id={lesson.id}
+                        slug={lesson.slug}
+                        imgSrc={lesson.img}
+                        title={lesson.title}
+                        level={lesson.level}
+                        tags={lesson.tags}
+                        description={lesson.description}
+                        onSelect={(id) => {
+                            console.log("Go to lesson:", id);
+                            // later -- navigate(`/lessons/${id}`)
+                        }}
+                    />
+                ))}
             </div>
         </section>
     );
