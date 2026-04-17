@@ -2,6 +2,7 @@ import { Button } from "./Button";
 import { Badge } from "./Badge";
 
 interface LessonCardProps {
+    id: string;
     slug: string;
     imgSrc?: string;
     title: string;
