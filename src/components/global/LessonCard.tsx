@@ -1,14 +1,14 @@
 import { Button } from "./Button";
 import { Badge } from "./Badge";
 
-interface CardProps {
-    id: string;
+interface LessonCardProps {
+    slug: string;
     imgSrc?: string;
     title: string;
     level?: string[];
     tags: string[];
     description: string;
-    onSelect: (id: string) => void
+    onSelect: (slug: string) => void
 }
 
 const cardBaseStyles =
@@ -28,11 +28,15 @@ const cardLevelStyles =
 
     `
 
-export const Card = ({ id, imgSrc, title, level, description, tags, onSelect }: CardProps) => {
-    return <div className={`${cardBaseStyles}`} onClick={() => onSelect(id)}>
-        <img src={imgSrc} alt={`${title}`} className={cardImgStyles} />
+export const LessonCard = ({ slug, imgSrc, title, level, description, tags, onSelect }: LessonCardProps) => {
+    return <div className={`${cardBaseStyles}`} onClick={() => onSelect(slug)}>
+        {imgSrc && (
+            <img src={imgSrc} alt={title} className={cardImgStyles} />
+        )}
         <h3>{title}</h3>
-        <p className={cardLevelStyles}>{level}</p>
+        <p className={cardLevelStyles}>
+            {level?.join(", ")}
+        </p>
         <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
                 <Badge key={tag} text={tag} />
