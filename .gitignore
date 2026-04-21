@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .env*
+
+# dir where raw svgs are stored before colour processing - should track 'processed'
+raw/
