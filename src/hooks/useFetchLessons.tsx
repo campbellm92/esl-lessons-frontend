@@ -9,7 +9,7 @@ interface LessonsResponse {
     level: string[];
     description: string;
     tags: string[];
-    img?: string;
+    image?: string;
 }
 
 export default function useFetchLessons() {
@@ -20,7 +20,7 @@ export default function useFetchLessons() {
     useEffect(() => {
         async function fetchLessons() {
             try {
-                const response = await fetch(`${API_BASE_URL}/lessons/`);
+                const response = await fetch(`${API_BASE_URL}/lessons`);
                 if (!response.ok) throw new Error("Failed to fetch lesson!");
 
                 const json = await response.json();
