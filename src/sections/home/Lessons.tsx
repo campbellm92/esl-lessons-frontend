@@ -1,7 +1,6 @@
 import { LessonCard } from "../../components/global/LessonCard";
 import useFetchLessons from "../../hooks/useFetchLessons";
-// import lessonsSectionBackground from "../../assets/backgrounds/blob-scatter-haikei.svg"
-// import testImage from "../../assets/images/esports.jpg"
+
 
 interface LessonsProps {
     title: string;
@@ -41,7 +40,7 @@ export const Lessons = ({ title }: LessonsProps) => {
                         key={lesson.id}
                         id={lesson.id}
                         slug={lesson.slug}
-                        imgSrc={lesson.img}
+                        imgSrc={`/assets/illustrations/processed/${lesson.image}.svg`}
                         title={lesson.title}
                         level={lesson.level}
                         tags={lesson.tags}
