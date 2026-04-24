@@ -6,11 +6,21 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   /* Colours */
-  --color-saffron: #e6c229;
-  --color-pumpkin-spice: #f17105;
-  --color-intense-cherry: #d11149;
+
+  /* Primary colour for non-lesson-specific elements */
   --color-electric-indigo: #6610f2;
+
+  /* CEFR-level-specific colours*/
+  /* A1, A2, A1 > A2 lessons */
+  --color-saffron: #e6c229;
+  /* A2 > B1 lessons */
+  --color-pumpkin-spice: #f17105;
+  /* B1, B2, B1 > B2 lessons */
+  --color-intense-cherry: #d11149;
+  /* B2 > C1 lessons */
   --color-bright-ocean: #1a8fe3;
+  /* C1, C2 */
+  --color-jungle: #53a548;
 
   --color-mine-shaft-50: #fafafa;
   --color-mine-shaft-100: #f5f5f5;
