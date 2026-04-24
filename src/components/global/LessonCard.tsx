@@ -1,3 +1,4 @@
+import { getLessonTone } from "../../themes/lessonTheme";
 import { Button } from "./Button";
 import { Badge } from "./Badge";
 
@@ -7,9 +8,9 @@ interface LessonCardProps {
     imgSrc?: string;
     title: string;
     level?: string[];
-    tags: string[];
     description: string;
-    onSelect: (slug: string) => void
+    tags: string[];
+    onSelect: (slug: string) => void;
 }
 
 const cardBaseStyles =
@@ -29,10 +30,15 @@ const cardLevelStyles =
 
     `
 
-export const LessonCard = ({ slug, imgSrc, title, level, description, tags, onSelect }: LessonCardProps) => {
-    return <div className={`${cardBaseStyles}`} onClick={() => onSelect(slug)}>
+export const LessonCard = ({ slug, imgSrc, title, level, description, tags, onSelect, ...props }: LessonCardProps) => {
+    const lessonTone = getLessonTone(level);
+
+    return <div {...props}
+        className={`${cardBaseStyles} ${lessonTone.border}`}
+        onClick={() => onSelect(slug)}
+    >
         {imgSrc && (
-            <img src={imgSrc} alt={title} className={cardImgStyles} />
+            <img src={imgSrc} alt={title} className={`${cardImgStyles} ${lessonTone.bg}`} />
         )}
         <h3>{title}</h3>
         <p className={cardLevelStyles}>
@@ -44,6 +50,6 @@ export const LessonCard = ({ slug, imgSrc, title, level, description, tags, onSe
             ))}
         </div>
         <p>{description}</p>
-        <div className="flex justify-center"><Button className="w-1/2">Learn</Button></div>
+        <div className="flex justify-center"><Button className={`w-1/2 ${lessonTone.button}`}>Learn</Button></div>
     </div>
 }
